@@ -10,6 +10,7 @@
 \usepackage{tabularx}
 \usepackage{multicol}
 \usepackage{enumitem}
+\usepackage{etoolbox}
 
 \pagestyle{plain}
 
@@ -17,6 +18,12 @@
 
 \setlength{\parindent}{0in}
 \setlength{\parskip}{0in}
+
+%Bibliography Settings
+\patchcmd{\thebibliography}{\section*{\refname}}{}{}{}
+\makeatletter
+\def\@biblabel#1{}
+\makeatother
 
 % Name and contact information
 \newcommand{\name}{Carlo Yuvienco}
@@ -176,14 +183,15 @@
 
 % Publications
 \begin{tightressection}{publications}
-  \begin{itemize}[noitemsep,nolistsep]
-    \resitem{Presentation: ``Design of an Open Source Hardware Sensor and Data Logging Unit''.  Presented at the National Conference on Undergraduate Research, University of Wisconsin - La Crosse, April 2013.}
-    \resitem{Presentation of Unpublished Paper: ``Inside Everything: Strategies to Promote Taiwan's Continued Importance in the Global Semiconductor Market''. Presented at the National Chengchi University, Taipei, October 2012.}
-  \end{itemize}
+    \vspace{-2\baselineskip}
+    \nocite{*}
+    \bibliographystyle{ieeetr}
+    \bibliography{resume}
 \end{tightressection}
 
 % Presentations
 \begin{tightressection}{presentations}
+    \vspace{-2\baselineskip}
   \begin{itemize}[noitemsep,nolistsep]
     \resitem{Presentation: ``Design of an Open Source Hardware Sensor and Data Logging Unit''.  Presented at the National Conference on Undergraduate Research, University of Wisconsin - La Crosse, April 2013.}
     \resitem{Presentation of Unpublished Paper: ``Inside Everything: Strategies to Promote Taiwan's Continued Importance in the Global Semiconductor Market''. Presented at the National Chengchi University, Taipei, October 2012.}
