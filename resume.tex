@@ -1,5 +1,3 @@
-% Modified Jul 5,2013
-
 \documentclass[10pt, letterpaper, oneside]{article}
 
 \usepackage{geometry}
@@ -11,6 +9,7 @@
 \usepackage{multicol}
 \usepackage{enumitem}
 \usepackage{etoolbox}
+\usepackage[backend=bibtex,sorting=ydnt,doi=false,url=false,maxnames=99,firstinits,bibstyle=authoryear]{biblatex}
 
 \pagestyle{plain}
 
@@ -20,10 +19,7 @@
 \setlength{\parskip}{0in}
 
 %Bibliography Settings
-\patchcmd{\thebibliography}{\section*{\refname}}{}{}{}
-\makeatletter
-\def\@biblabel#1{}
-\makeatother
+\addbibresource{resume.bib}
 
 % Name and contact information
 \newcommand{\name}{Carlo Yuvienco}
@@ -185,8 +181,7 @@
 \begin{tightressection}{publications}
     \vspace{-2\baselineskip}
     \nocite{*}
-    \bibliographystyle{ieeetr}
-    \bibliography{resume}
+    \printbibliography[heading=none]
 \end{tightressection}
 
 % Presentations
